@@ -1,0 +1,7 @@
+[package]
+name = "pendu"
+version = "0.1.0"
+
+[dependencies]
+ncurses = "5.97.0"
+rand = "0.6"
