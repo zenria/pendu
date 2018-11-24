@@ -194,7 +194,7 @@ impl Display for LettreATrouver {
 struct Jeu {
     etat: Avancement,
     a_trouver: Vec<LettreATrouver>,
-    deja_tappee: Vec<u8>,
+    deja_tapee: Vec<u8>,
 }
 
 impl Jeu {
@@ -205,7 +205,7 @@ impl Jeu {
         Jeu {
             etat: Avancement::Debut,
             a_trouver: coucou,
-            deja_tappee: Vec::new(),
+            deja_tapee: Vec::new(),
         }
     }
     fn gagne(&self) -> bool {
@@ -228,11 +228,11 @@ impl Jeu {
             // Jeu terminé
             return;
         }
-        if self.deja_tappee.contains(&c) {
+        if self.deja_tapee.contains(&c) {
             // Lettre déjà utilisée
             return;
         }
-        self.deja_tappee.push(c);
+        self.deja_tapee.push(c);
 
         if self
             .a_trouver
@@ -247,6 +247,8 @@ impl Jeu {
         {
             // Pas de lettre trouvée!
             match self.next() {
+                // Quand on perd => on marque comme trouvées toutes les lettres, ainsi,
+                // elles sont affichées au joueur !
                 Some(Avancement::Perdu) => self.a_trouver.iter_mut().for_each(|l| {
                     *l = LettreATrouver { found: true, ..*l };
                 }),
