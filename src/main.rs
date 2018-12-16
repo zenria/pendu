@@ -1,14 +1,11 @@
-extern crate ncurses;
-extern crate rand;
-
 use ncurses::*;
 use rand::prelude::*;
 
 mod potence;
-use potence::Potence;
+use crate::potence::Potence;
 
 mod lettre_a_trouver;
-use lettre_a_trouver::LettreATrouver;
+use crate::lettre_a_trouver::LettreATrouver;
 
 fn get_max_xy() -> (i32, i32) {
     let mut max_x = 0;

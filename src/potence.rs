@@ -15,7 +15,7 @@ pub enum Potence {
     Perdu,
 }
 
-use Potence::*;
+use self::Potence::*;
 
 ///
 /// La façon d'afficher chaque niveau
